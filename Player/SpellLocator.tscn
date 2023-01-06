@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/TinyDungeon/tile_0060.png" type="Texture" id=1]
+
+[node name="SpellLocator" type="RayCast2D"]
+enabled = true
+cast_to = Vector2( 16, 0 )
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 16, 0 )
+texture = ExtResource( 1 )

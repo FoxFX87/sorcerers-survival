@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/SpellInteractSprites/tile_0043.png" type="Texture" id=1]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 7.0
+
+[node name="SpellCostItemBase" type="Area2D"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+offset = Vector2( 0, -8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
