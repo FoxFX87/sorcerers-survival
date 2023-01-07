@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Resources/test_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://SpellCostItem/SpellCostItemBase.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UI/UISpellInput.tscn" type="PackedScene" id=4]
 
 [node name="TestLevel" type="YSort"]
 
@@ -50,3 +51,7 @@ position = Vector2( 312, 136 )
 
 [node name="SpellCostItemBase11" parent="SpellPickups" instance=ExtResource( 3 )]
 position = Vector2( 376, 72 )
+
+[node name="UICanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UISpellInput" parent="UICanvasLayer" instance=ExtResource( 4 )]
