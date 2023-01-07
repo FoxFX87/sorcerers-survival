@@ -41,7 +41,7 @@ func _ready():
 	snap_to_grid()
 
 func _process(_delta):
-	pass
+	update_visible_locators()
 	
 func update_visible_locators():
 	var locators = [
@@ -105,6 +105,7 @@ func can_cast(spell_string: String):
 				var spell = GREENSPELL.instance()
 				spell.global_position = self.global_position
 				get_tree().root.add_child(spell)
+				
 	
 func can_cast_east():
 	return Input.is_action_just_pressed(SPELL_INPUTS[0]) and east_spell_locator.is_colliding()
