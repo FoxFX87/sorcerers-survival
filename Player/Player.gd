@@ -29,8 +29,6 @@ onready var west_spell_locator = $WestSpellLocator
 onready var north_spell_locator = $NorthSpellLocator
 onready var south_spell_locator = $SouthSpellLocator
 
-signal spell_detected()
-
 func _enter_tree():
 	MainInstances.player = self
 	
@@ -54,7 +52,6 @@ func update_visible_locators():
 	for locator in locators:
 		locator.visible = locator.is_colliding()
 		
-	emit_signal("spell_detected")
 	
 func hide_locators():
 	var locators = [
@@ -67,7 +64,6 @@ func hide_locators():
 	for locator in locators:
 		locator.visible = false
 		
-	emit_signal("spell_detected")
 	
 func can_cast(spell_string: String):
 	var _locators = [
@@ -80,38 +76,23 @@ func can_cast(spell_string: String):
 	match spell_string:
 		"east_cast":
 			if east_spell_locator.is_colliding():
-				east_spell_locator.get_collider().queue_free()
-				var spell = GREENSPELL.instance()
-				spell.global_position = self.global_position
-				get_tree().root.add_child(spell)
+				consume_for_spell(east_spell_locator)
 			
 		"west_cast":
 			if west_spell_locator.is_colliding():
-				west_spell_locator.get_collider().queue_free()
-				var spell = GREENSPELL.instance()
-				spell.global_position = self.global_position
-				get_tree().root.add_child(spell)
+				consume_for_spell(west_spell_locator)
 			
 		"north_cast":
 			if north_spell_locator.is_colliding():
-				north_spell_locator.get_collider().queue_free()
-				var spell = GREENSPELL.instance()
-				spell.global_position = self.global_position
-				get_tree().root.add_child(spell)
+				consume_for_spell(north_spell_locator)
 			
 		"south_cast":
 			if south_spell_locator.is_colliding():
-				south_spell_locator.get_collider().queue_free()
-				var spell = GREENSPELL.instance()
-				spell.global_position = self.global_position
-				get_tree().root.add_child(spell)
+				consume_for_spell(south_spell_locator)
 				
-	
-func can_cast_east():
-	return Input.is_action_just_pressed(SPELL_INPUTS[0]) and east_spell_locator.is_colliding()
 
-func consume_east():
-	east_spell_locator.get_collider().queue_free()
+func consume_for_spell(spell_collider: RayCast2D):
+	spell_collider.get_collider().queue_free()
 	var spell = GREENSPELL.instance()
 	spell.global_position = self.global_position
 	get_tree().root.add_child(spell)

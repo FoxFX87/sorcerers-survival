@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://ModularWeaponSystem/ModularWeapon.gd" type="Script" id=1]
+[ext_resource path="res://ModularWeaponSystem/Projectiles/Basic/BasicEmitter.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ModularWeaponSystem/Configurations/ConfigStraight.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ModularWeaponSystem/ProjectileMotions/Straight_Motion.tres" type="Resource" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 48 )
+
+[node name="TestWeaponSystem" type="Node2D"]
+
+[node name="ModularWeapon" type="Node2D" parent="."]
+script = ExtResource( 1 )
+emitter_config = ExtResource( 3 )
+projectile_emitter = ExtResource( 2 )
+projectile_motions = [ ExtResource( 4 ) ]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="TestWall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestWall"]
+position = Vector2( 104, 8 )
+shape = SubResource( 1 )
