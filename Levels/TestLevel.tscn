@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Resources/test_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://SpellCostItem/SpellCostItemBase.tscn" type="PackedScene" id=3]
 [ext_resource path="res://UI/UISpellInput.tscn" type="PackedScene" id=4]
 
 [node name="TestLevel" type="YSort"]
@@ -18,39 +17,6 @@ tile_data = PoolIntArray( 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65
 position = Vector2( 72, 120 )
 
 [node name="SpellPickups" type="Node2D" parent="."]
-
-[node name="SpellCostItemBase" parent="SpellPickups" instance=ExtResource( 3 )]
-position = Vector2( 104, 56 )
-
-[node name="SpellCostItemBase2" parent="SpellPickups" instance=ExtResource( 3 )]
-position = Vector2( 104, 72 )
-
-[node name="SpellCostItemBase3" parent="SpellPickups" instance=ExtResource( 3 )]
-position = Vector2( 120, 88 )
-
-[node name="SpellCostItemBase4" parent="SpellPickups" instance=ExtResource( 3 )]
-position = Vector2( 216, 104 )
-
-[node name="SpellCostItemBase5" parent="SpellPickups" instance=ExtResource( 3 )]
-position = Vector2( 168, 72 )
-
-[node name="SpellCostItemBase6" parent="SpellPickups" instance=ExtResource( 3 )]
-position = Vector2( 168, 136 )
-
-[node name="SpellCostItemBase7" parent="SpellPickups" instance=ExtResource( 3 )]
-position = Vector2( 296, 88 )
-
-[node name="SpellCostItemBase8" parent="SpellPickups" instance=ExtResource( 3 )]
-position = Vector2( 248, 136 )
-
-[node name="SpellCostItemBase9" parent="SpellPickups" instance=ExtResource( 3 )]
-position = Vector2( 216, 56 )
-
-[node name="SpellCostItemBase10" parent="SpellPickups" instance=ExtResource( 3 )]
-position = Vector2( 312, 136 )
-
-[node name="SpellCostItemBase11" parent="SpellPickups" instance=ExtResource( 3 )]
-position = Vector2( 376, 72 )
 
 [node name="UICanvasLayer" type="CanvasLayer" parent="."]
 

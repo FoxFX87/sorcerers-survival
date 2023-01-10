@@ -11,6 +11,7 @@
 extents = Vector2( 7, 7 )
 
 [node name="Player" type="KinematicBody2D"]
+collision_layer = 4
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -21,15 +22,19 @@ enabled = true
 cast_to = Vector2( 0, 16 )
 
 [node name="EastSpellLocator" parent="." instance=ExtResource( 3 )]
+collide_with_bodies = true
 
 [node name="WestSpellLocator" parent="." instance=ExtResource( 3 )]
 scale = Vector2( -1, 1 )
+collide_with_bodies = true
 
 [node name="NorthSpellLocator" parent="." instance=ExtResource( 3 )]
 rotation = -1.5708
+collide_with_bodies = true
 
 [node name="SouthSpellLocator" parent="." instance=ExtResource( 3 )]
 rotation = 1.5708
+collide_with_bodies = true
 
 [node name="Skin" type="Sprite" parent="."]
 texture = ExtResource( 1 )
